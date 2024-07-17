@@ -7,10 +7,11 @@ image:
   tag: "2.0.0"
 
 
-  ingress:
+
+ingress:
   enabled: true
   className: "nginx"
-  annotations: 
+  annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     ingress.kubernetes.io/ssl-redirect: "false"
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -20,7 +21,7 @@ image:
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: 
-  #  - secretName: dev-artemis-tls
-  #    hosts:
-  #      - dev.luxsells.com
+  tls:
+    - secretName: dev-artemis-tls
+      hosts:
+        - dev-artemis.luxsells.com
